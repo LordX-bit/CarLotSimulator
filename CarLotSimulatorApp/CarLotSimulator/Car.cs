@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +12,18 @@ namespace CarLotSimulator
     {
         public Car()
         {
+            CarLot.numberOfCars++;
         }
+        public Car(int year, string make, string model, string engineNoise, string honkNoise, bool isDrivable)
+        {
+            Year = year;
+            Make = make;
+            Model = model;
+            EngineNoise = engineNoise;
+            HonkNoise = honkNoise;
+            IsDrivable = isDrivable;
+        }
+
         public int Year { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
@@ -20,11 +32,14 @@ namespace CarLotSimulator
         public bool IsDrivable { get; set; }
         public void MakeEngineNoise(string engineNoise)
         {
-            Console.WriteLine(engineNoise);
+            Console.WriteLine($"{engineNoise}");
         }
-        public void MakeHonkNoise(string honkNoise)
+
+            
+          public void MakeHonkNoise(string honkNoise)
         {
-            Console.Write(honkNoise);
+            Console.WriteLine(HonkNoise);
         }
+        
     }
 }
